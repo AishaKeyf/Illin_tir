@@ -7,5 +7,9 @@
     --font-Poppins: Poppins, sans-serif;
     --color-light-50: oklch(0.95 0.0218 239.43);
     --color-mint-500: oklch(0.72 0.11 178);
-    --color-huruud-0: oklch(0.65 0.15 45)
+    --color-huruud-0: oklch(0.65 0.15 45);
+    --color-srb-0: rgb(71, 133, 218);
+    --color-ssb-0: rgb(250, 250, 250);
+    --color-lsb-0: #ecf6ff;
+
 }

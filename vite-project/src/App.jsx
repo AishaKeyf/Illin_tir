@@ -8,9 +8,9 @@ import { Footer } from './Component/Footer'
 function App() {
 
     return (
-        <div className='font-Poppins'>
+        <div className='font-Poppins overflow-hidden max-w-full'>
             <Header />
-            <main>
+            <main >
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='Baafi' element={<Baafi />} />

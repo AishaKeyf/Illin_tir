@@ -39,7 +39,7 @@ const works = [
 export const Home = () => {
 
     return (
-        <div className="min-h-screen bg-blue-50 ">
+        <div className="min-h-screen max-w-full bg-blue-50 ">
             {/* Hero section */}
             <div className="relative flex flex-col h-150 bg-[url('/rh.jpg')] bg-center bg-no-repeat bg-cover">
                 <div className="bg-black opacity-50 inset-0  absolute"></div>
@@ -52,10 +52,10 @@ export const Home = () => {
                 </div>
 
             </div>
-            <div className=" w-full  mx-auto rounded backdrop-blur-md">
-                <div className="flex justify-between items-center">
+            <div className="mr-6   w-full ">
+                <div className="space-x-2 flex justify-between items-center">
                     {showCases.map((showCase) => (
-                        <div className="" key={showCase.id}>
+                        <div className="m-5 bg-blue-800 mx-auto p-5" key={showCase.id}>
                             <h1>{showCase.no}</h1>
                             <p>{showCase.title}</p>
                         </div>
@@ -64,17 +64,24 @@ export const Home = () => {
                 </div>
             </div>
             {/* How it works */}
-            <div className="bg-light-50 w-full text-black">
-                <ul>
+            {/* <div className=" w-full bg-blue-200  mx-auto rounded backdrop-blur-md">
+                <div className="flex justify-between items-center">
                     {works.map((work) => (
-                        <div className="bg-">
-                            <li key={work.id}>{work.title}</li>
-                            <i>{work.Icon}</i>
+                        <div className="" key={work.id}>
+                            <div className="">
+                                <p>{work.Icon}</p>
+                            </div>
+                            <div className="">
+                                <h1>{work.title}</h1>
+                            </div>
+
+
                         </div>
 
                     ))}
-                </ul>
-            </div>
+                </div>
+            </div> */}
+
         </div>
     )
 }
