@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { Link, Search } from "lucide-react"
+import { Search } from "lucide-react"
 import { useState } from "react"
+import { Link } from "react-router"
 const showCases = [
     {
         id: 1,
@@ -39,7 +40,7 @@ const works = [
 export const Home = () => {
 
     return (
-        <div className="min-h-screen max-w-full bg-blue-50 ">
+        <div className="min-h-screen max-w-full bg-blue-50 overflow-hidden">
             {/* Hero section */}
             <div className="relative flex flex-col h-150 bg-[url('/rh.jpg')] bg-center bg-no-repeat bg-cover">
                 <div className="bg-black opacity-50 inset-0  absolute"></div>
@@ -47,7 +48,9 @@ export const Home = () => {
                     <div className="text-center space-y-4 p-5 ">
                         <h1 className="text-white text-3xl font-bold text-center">Baadi-Goobka Qoyska Waa bilowga rajada Rajada</h1>
                         <p className="text-gray-300 text-lg"> Ka qayb qaado dadaalka lagu raadinayo dadk maqan</p>
-                        <Button className="mb-3 bg-huruud-0 cursor-pointer" variant="outline">Baafi</Button>
+                        <Link to='/baafi'>
+                            <Button className="mb-3 bg-fuchsia-500 cursor-pointer" variant="outline">Baafi</Button>
+                        </Link>
                     </div>
                 </div>
 
