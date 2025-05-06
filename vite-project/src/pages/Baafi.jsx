@@ -40,7 +40,7 @@ export const Baafi = () => {
                     </div>
                 </div>
             </div>
-            <div className=" bg-light-50 flex items-center">
+            <div className=" bg-blue-50 pb-5 flex items-center">
                 <div className="mx-auto md:w-1/2 bg-amber-50 shadow ">
                     <form
                         onSubmit={handleSubmit(onSubmit)}

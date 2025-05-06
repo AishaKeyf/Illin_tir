@@ -4,7 +4,9 @@ import { Home } from './pages/Home'
 import { Baafi } from './pages/Baafi'
 import { Header } from './Component/Header'
 import { Footer } from './Component/Footer'
-// import { Maqane } from './pages/Maqane'
+import { Maqane } from './pages/Maqane'
+import { Privacy } from './pages/Privacy'
+import { Terms } from './pages/Terms'
 
 function App() {
 
@@ -14,10 +16,11 @@ function App() {
             <main >
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    {/* <Route path='maqane' element={<Maqane />} /> */}
+                    <Route path='maqane' element={<Maqane />} />
                     <Route path='Baafi' element={<Baafi />} />
+                    <Route path='privacy' element={<Privacy />} />
+                    <Route path='terms' element={<Terms />} />
                 </Routes>
-                {/* <h2 className='text-center font-bold text-3xl '>illintire</h2> */}
             </main>
             <Footer />
         </div>
