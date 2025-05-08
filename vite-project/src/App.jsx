@@ -7,6 +7,7 @@ import { Footer } from './Component/Footer'
 import { Maqane } from './pages/Maqane'
 import { Privacy } from './pages/Privacy'
 import { Terms } from './pages/Terms'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                     <Route path='terms' element={<Terms />} />
                 </Routes>
             </main>
+            <Toaster />
             <Footer />
         </div>
     )

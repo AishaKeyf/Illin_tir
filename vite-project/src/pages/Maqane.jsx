@@ -14,35 +14,6 @@ export const Maqane = () => {
     const [missingPeaple, setMissingPeaple] = useState(null)
     const u = img
 
-    // const a = [
-    //     {
-    //         id: 1,
-    //         name: 'maxamed ahmed',
-    //         des: 'waxaa lawaayay 10 sano kahor'
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'jibriil',
-    //         des: 'waxaa lawaayay 10 sano kahor'
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'ali',
-    //         des: 'waxaa lawaayay 10 sano kahor'
-    //     },
-    //     {
-    //         id: 4,
-    //         name: ' ahmed',
-    //         des: 'waxaa lawaayay 10 sano kahor'
-    //     },
-    //     {
-    //         id: 5,
-    //         name: 'layla',
-    //         des: 'waxaa lawaayay 10 sano kahor'
-    //     },
-    // ]
-
-
 
     useEffect(() => {
         const fetchPeaple = async () => {
@@ -50,28 +21,23 @@ export const Maqane = () => {
             const { data, error } = await supabase.from('baafin').select('*')
 
             try {
+                console.log(data)
+
                 if (data) {
+                    setLoading(false)
                     setMissingPeaple(data)
                     setFetchError(null)
-                    setLoading(false)
+
                 }
             } catch (error) {
                 setFetchError("there's fetching error: ", error)
                 setMissingPeaple(null)
+
                 console.log(error)
             } finally {
                 setLoading(false)
             }
-            // if (error) {
-            //     setFetchError("there's fetching error: ", error)
-            //     setMissingPeaple(null)
-            //     console.log(error)
-            // }
 
-            // if (data) {
-            //     setMissingPeaple(data)
-            //     setFetchError(null)
-            // }
             console.log(missingPeaple)
 
         }
@@ -106,9 +72,11 @@ export const Maqane = () => {
             </div>
 
             {/* missing peaple */}
+            {/* {!missingPeaple && (<p className='text-2xl text-red-700'> Ther's no data to display yet</p>)} */}
             {loading && <p className='text-green-600'>Loading.......</p>}
             {fetchError && <p className='text-red-600'>{fetchError}</p>}
             <div className="p-5 w-full gap-4 grid md:grid-cols-2 lg:grid-cols-3">
+
                 {missingPeaple && (
                     <>
                         {

@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router"
+import { Keyboard, Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 const showCases = [
     {
@@ -38,6 +44,49 @@ const works = [
     }
 ]
 
+const a = [
+    {
+        id: 1,
+        name: 'maxamed ahmed',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 2,
+        name: 'jibriil',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 3,
+        name: 'ali',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 4,
+        name: ' ahmed',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 5,
+        name: 'layla',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 6,
+        name: 'layla',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+    {
+        id: 7,
+        name: 'layla',
+        des: 'waxaa lawaayay 10 sano kahor'
+    },
+]
+const u = '/pp.jpg'
+const d = '/p.jpeg'
+const o = '/ms.jpg'
+const randum = Math.floor(Math.random() * a.length)
+console.log(randum, a[randum])
+const dk = a[randum]
 export const Home = () => {
 
     return (
@@ -78,14 +127,66 @@ export const Home = () => {
                             <div className="">
                                 <h1>{work.title}</h1>
                             </div>
-
-
                         </div>
-
                     ))}
                 </div>
             </div> */}
+            <div className="flex bg-red-500 items-center justify-center">
+                <Swiper className="flex items-center justify-center mySwiper"
+                    modules={[Keyboard, Autoplay, Navigation, Pagination]}
+                    spaceBetween={20}
+                    slidesPerView={1}
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    keyboard={{
+                        enabled: true,
+                    }}
+                    // autoplay={{
+                    //     delay: 2500,
+                    //     disableOnInteraction: false,
+                    // }}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                >
+                    <SwiperSlide>
+                        <div className="flex items-center justify-center">
+                            <img src={u} className="w-50" />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide><img src={d} className="w-50" /></SwiperSlide>
+                    <SwiperSlide><img src={o} className="w-50" /></SwiperSlide>
+                    <SwiperSlide><img src={d} className="w-50" /></SwiperSlide>
 
+                </Swiper>
+            </div>
+            <div className="p-5 w-full ">
+                <h1 className='text-gray-950 font-bold '>Dad maqan oo muhiim ah</h1>
+
+                <div className="flex justify-between  w-full overflow-visible gap-8 ">
+                    {
+                        a.map((a) => (
+                            <div className="block visible  flex-1 mt-5 bg-blue-100" key={a.id}>
+                                <div className="flex w-2xs gap-4 flex-col ">
+                                    <div className="">
+                                        <img src={u} className="w-full" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="">
+                                            <h1 className='text-gray-570 font-semibold '>{a.name}</h1>
+                                            <p className='text-gray-800 text-sm'>{a.des}</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        ))
+                    }
+
+                </div>
+            </div>
         </div>
     )
 }

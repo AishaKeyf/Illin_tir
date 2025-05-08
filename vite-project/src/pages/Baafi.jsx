@@ -3,32 +3,32 @@ import { Button } from '@/components/ui/button';
 import supabase from '@/lib/supabase';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 
 export const Baafi = () => {
     // console.log(supabase)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [selectedImage, setSelectedImage] = useState('');
-    const [formData, setFormData] = useState({})
-    const onSubmit = (data) => {
-        console.log(data)
-        setFormData(data)
-    }
-    console.log(formData)
 
-    // add data in supabase
-    const addData = async () => {
-        const { data, error } = await supabase.from('baafin').insert([formData]).select('*')
-        console.log(formData)
+
+    const onSubmit = async (datas) => {
+        console.log(datas)
+
+        // add data in supabase
+        const { data, error } = await supabase.from('baafin').insert([datas]).select().single()
+
         if (error) {
             console.error(error)
+
+            toast.error('Failed to save your info.Try again')
         }
-        // else {
-        //     setFormData((prev) => ({ ...prev, data }))
-
-        // }
-
+        if (data) {
+            console.log('data insergted successfully', data)
+            toast.success('data insergted successfully')
+        }
     }
+
 
     return (
         <div className='min-h-screen text-black max-w-full bg-blue-50 overflow-hidden'>
@@ -104,7 +104,7 @@ export const Baafi = () => {
                             <div className="mx-auto ring-2 w-full ring-black rounded ">
                                 <input className='pl-2 w-full  p-3'
                                     type="date"
-                                    {...register(' Xkd', { required: 'Dooro xilligii kuugu wardanbaysay' })}
+                                    {...register('Xkd', { required: 'Dooro xilligii kuugu wardanbaysay' })}
                                     placeholder='xilligii kuuugu wardanbaysay'
                                 />
                             </div>
@@ -126,7 +126,9 @@ export const Baafi = () => {
                             </div>
                             <div className="flex flex-col">
                                 <div className="flex flex-col mx-auto ring-2 w-full ring-black rounded ">
-                                    <input type="file"
+                                    <input
+                                        className='p-5 text-amber-400'
+                                        type="file"
                                         // {...register('sawir', { required: 'soo gali sawirka' })}
                                         name="file"
                                         accept='image/*'
@@ -139,14 +141,16 @@ export const Baafi = () => {
                                         }}
                                     />
                                     {selectedImage && (
-                                        <img src={selectedImage} className='w-full h-full ' />
+                                        <img src={selectedImage}
+                                            className='w-full h-full '
+                                        />
                                     )}
                                 </div>
                                 {/* {errors.Dada && <p className='text-red-400 py-4'>{errors.Dada.message}</p>} */}
                             </div>
                         </div>
                         <div className="">
-                            <Button className="bg-fuchsia-500" varient="outline" type="submit" onClick={addData}>submit</Button>
+                            <Button className="bg-fuchsia-500" varient="outline" type="submit" >submit</Button>
                         </div>
                         <div className="w-full">
                             <p className=' text-gray-700 '>
