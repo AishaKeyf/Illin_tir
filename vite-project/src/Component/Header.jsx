@@ -19,7 +19,7 @@ export const Header = () => {
 
                     <div className="flex">
                         <div className="flex justify-center items-center">
-                            <h1 className='font-Sacramento text-fuchsia-500 font-bold text-4xl '>Illintir</h1>
+                            <h1 className='font-Sacramento text-blue-600 cursor-pointer font-bold text-4xl '><Link to='/'>Illintir</Link></h1>
                         </div>
                     </div>
 
@@ -29,9 +29,9 @@ export const Header = () => {
                         {isLoggedIn && (
                             <>
                                 <nav className="hidden md:flex justify-between items-center space-x-2 text-2xl gap-8 font-bold">
-                                    <Link className={`hover:text-fuchsia-500`} to='/'>Home</Link>
-                                    <Link className={`hover:text-fuchsia-500`} to='/maqane'>Maqane</Link>
-                                    <Link className={`hover:text-fuchsia-500`} to='/baafi'>Baafi</Link>
+                                    <Link className={`hover:text-blue-600`} to='/'>Home</Link>
+                                    <Link className={`hover:text-blue-600`} to='/maqane'>Maqane</Link>
+                                    <Link className={`hover:text-blue-600`} to='/baafi'>Baafi</Link>
                                 </nav>
                             </>
                         )}
@@ -41,16 +41,16 @@ export const Header = () => {
 
                     <div className="hidden md:flex justify-between items-center ">
                         {isLoggedIn && (
-                            <div className="flex gap-5 space-y-5 ">
+                            <div className="flex gap-5 space-y-5 text-black">
                                 <div className="flex items-center mt-6">
                                     <Button onClick={logOut}
-                                        className="bg-fuchsia-500  cursor-pointer w-8 h-8 rounded-full" variant='' >
+                                        className="bg-blue-300 cursor-pointer w-8 h-8 rounded-full" variant='' >
                                         <CircleUserRound />
                                     </Button>
                                 </div>
                                 <div className="flex justify-center items-center ">
                                     <Button
-                                        className="w-full rounded bg-fuchsia-500 cursor-pointer px-4" variant='destructive'>
+                                        className="w-full rounded text-black bg-blue-300 cursor-pointer px-4" variant='destructive'>
                                         Log out
                                     </Button>
                                 </div>
